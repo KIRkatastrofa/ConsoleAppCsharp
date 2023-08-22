@@ -78,42 +78,30 @@ namespace ConsoleAppStock.View
             var weight = 0;
             //*var deep = 0;
             var date = DateTime.Now;
-            try
+          
+            Console.WriteLine("Введите название");
+            var name = Console.ReadLine();
+            Console.WriteLine("Введите высоту");
+            var height = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите ширину");
+            var wight = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите глубину");
+            var deep = Convert.ToInt32(Console.ReadLine());
+            var box=new BoxController();
+            if (box.GetType() == uconttroler.GetType())
             {
-                Console.WriteLine("Введите название");
-                var name = Console.ReadLine();
-                Console.WriteLine("Введите высоту");
-                var height = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Введите ширину");
-                var wight = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Введите глубину");
-                var deep = Convert.ToInt32(Console.ReadLine());
-                var box=new BoxController();
-                if (box.GetType() == uconttroler.GetType())
-                {
-                    Console.WriteLine("Введите вес");
-                    weight = Convert.ToInt32(Console.ReadLine());
-                }
-                if(name!=null)
-                    uconttroler.Add(name,height,wight,deep, weight, date);
+                Console.WriteLine("Введите вес");
+                weight = Convert.ToInt32(Console.ReadLine());
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            if(name!=null)
+                uconttroler.Add(name,height,wight,deep, weight, date);
+            
         }
         public void AddBoxOnPaller(IPalletController uconttroler)
         {
-            try
-            {
             var numberPallet = Convert.ToInt32(Console.ReadLine())-1;
             var numberBox = Convert.ToInt32(Console.ReadLine())-1;
             uconttroler.AddBoxPal(numberPallet, numberBox);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-}
+        }
     }
 }
